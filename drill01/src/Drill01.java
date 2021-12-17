@@ -135,7 +135,17 @@ public class Drill01 {
 	 */
 	static Map<Character, Integer> characterCount(String s) {
 		// TODO: Implement the characterCount method
-		return new HashMap<>();
+		HashMap<Character,Integer> newHashMap=new HashMap<Character, Integer>();
+		if(s.length()>0) {
+			for (int i=0;i<s.length();i++) {
+				if (newHashMap.containsKey(s.charAt(i))) {
+					newHashMap.put(s.charAt(i),	newHashMap.get(s.charAt(i))+1);
+				}else {
+					newHashMap.put(s.charAt(i),1);
+				}
+			}
+		}
+		return newHashMap;
 	}
 	
 	/*
@@ -145,7 +155,17 @@ public class Drill01 {
 	 */
 	static String largestPopulation(Map<String, Integer> cities) {
 		// TODO: Implement the largestPopulation method
-		return "";
+		int larget=-1;
+		String city="";
+		if(!cities.isEmpty()) {
+			for (String key:cities.keySet()) {
+				if (cities.get(key)>larget) {
+					larget=cities.get(key);
+					city=key;
+				}
+			}
+		}
+		return city;
 	}
 
 }
