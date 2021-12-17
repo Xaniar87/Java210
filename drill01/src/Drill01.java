@@ -30,15 +30,13 @@ public class Drill01 {
 	 */
 	static int sumValues(int[] array) {
 		// TODO: Implement the sumValues method
+		int sum=0;
 		if (array.length>0) {
-			int sum=0;
 			for(int i=0;i<array.length;i++) {
 				sum+=array[i];
 			}
-			return sum;
-		}else {
-			return -1;
 		}
+		return sum;
 	}
 	
 	/*
@@ -47,11 +45,6 @@ public class Drill01 {
 	 */
 	static int[] doubleElements(int[] array) {
 		// TODO: Implement the doubleElements method
-//		if (array.length>0) {
-//			int[]=newArr[];
-//		}else {
-//			return null;
-//		}
 		int[] newArr = new int[array.length];
 		if(array.length>0) {
 			for (int i=0; i<array.length; i++) {
@@ -72,7 +65,11 @@ public class Drill01 {
 	 */
 	static int getElementAtIndex(int index, List<Integer> list) {
 		// TODO: Implement the getElementAtIndex method
-		return -1;
+		if (list.size()>0 && index>-1 && index<list.size()){
+			return list.get(index);
+		}else {
+			return -1;
+		}
 	}
 	
 	/*
@@ -80,7 +77,13 @@ public class Drill01 {
 	 */
 	static int sumValues(List<Integer> list) {
 		// TODO: Implement the sumValues method
-		return -1;
+		int sum=0;
+		if (list.size()>0) {
+			for (int i=0;i<list.size();i++) {
+				sum+=list.get(i);
+			}
+		} 
+		return sum;	
 	}
 	
 	/*
@@ -89,7 +92,13 @@ public class Drill01 {
 	 */
 	static List<Integer> doubleElements(List<Integer> list) {
 		// TODO: Implement the doubleElements method
-		return new ArrayList<>();
+		ArrayList<Integer> newArrList=new ArrayList<Integer>();
+		if (list.size()>0) {
+			for(int i=0;i<list.size();i++) {
+				newArrList.add(list.get(i)*2);
+			}
+		}
+		return newArrList;
 	}
 
 	/* -------- Sets -------- */
@@ -99,7 +108,7 @@ public class Drill01 {
 	 */
 	static boolean setContains(Set<Integer> set, int val) {
 		// TODO: Implement the setContains method
-		return false;
+		return set.contains(val);
 	}
 	
 	/*
@@ -108,7 +117,13 @@ public class Drill01 {
 	 */
 	static Set<Integer> setIntersection(Set<Integer> set1, Set<Integer> set2) {
 		// TODO: Implement the setIntersection method
-		return new HashSet<>();
+		HashSet<Integer> newHashSet= new HashSet<Integer>();
+		for(Integer val1:set1) {
+			if(set2.contains(val1)) {
+				newHashSet.add(val1);
+			}
+		}
+		return newHashSet;
 	}
 	
 	/*  -------- HashMaps -------- */
