@@ -14,9 +14,15 @@ public class WordSearch {
         // See CommandLine.java and Stdin.java in the Class Examples github for examples.
         try {
             Scanner grid = new Scanner(new File("TestCases/specExample.txt"));
+            Scanner vocab = new Scanner(new File("TestCases/dictionary.txt"));
             while (grid.hasNextLine()) {
                 String line = grid.nextLine();
                 System.out.println(line);
+            }
+            while (vocab.hasNextLine()) {
+                String word = vocab.nextLine();
+                System.out.println(word);
+
             }
         } catch (Exception IOException) {
             System.out.println(
