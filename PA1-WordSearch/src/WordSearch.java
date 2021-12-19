@@ -17,8 +17,8 @@ public class WordSearch {
         // args[1],...
         // See CommandLine.java and Stdin.java in the Class Examples github for examples.
         try {
-            Scanner grid = new Scanner(new File("TestCases/specExample.txt"));
-            Scanner vocab = new Scanner(new File("TestCases/dictionary.txt"));
+            Scanner grid = new Scanner(new File(args[0]));
+            Scanner vocab = new Scanner(new File(args[1]));
             Set<String> vocabSet = new HashSet<String>();
             while (vocab.hasNextLine()) {
                 vocabSet.add(vocab.nextLine().toLowerCase());
