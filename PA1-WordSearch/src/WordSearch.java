@@ -85,6 +85,8 @@ public class WordSearch {
 
                 }
             }
+            grid.close();
+            vocab.close();
 
         } catch (Exception IOException) {
             System.out.println(
