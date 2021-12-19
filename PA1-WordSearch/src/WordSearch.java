@@ -87,7 +87,7 @@ public class WordSearch {
             }
 
             grid.close();// closing files
-            vocab.close();
+            vocab.close();// closing files
 
 
         } catch (Exception IOException) {
