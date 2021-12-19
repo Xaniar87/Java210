@@ -88,6 +88,7 @@ public class WordSearch {
 
             grid.close();// closing files
             vocab.close();// closing files
+            System.out.println((int) 648 / 10);
 
 
         } catch (Exception IOException) {
