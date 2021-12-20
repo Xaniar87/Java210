@@ -57,7 +57,28 @@ public class Drill02 {
     // end and capitalized
     // See the README
     public static String moveToEnd(String s, char c) {
-    	return "";
+    	c=Character.toLowerCase(c);
+//    	s=s.toLowerCase();
+    	if(s.indexOf(c)<0) {
+    		return s;
+    	}else {
+//    		char ch=c;
+    		System.out.println("here "+ c);
+    		return moveToEnd(s.substring(0, s.toLowerCase().indexOf(c))+s.substring(s.toLowerCase().indexOf(c)+1),c)+Character.toUpperCase(c);
+
+    	}
     }
+//    public static String moveToEnd(String s, char c) {
+//    	int ind=s.indexOf(c);
+//    	String suff=s.substring(ind);
+//    	String allChar= new String(new char[suff.length()]).replace("\0", ""+c);
+//    	System.out.println(suff+" "+ allChar);
+//    	if (suff.equals(allChar)) {
+//    		return s;
+//    	}else {
+//    		
+//    	}
+//    	return "";
+//    }
 
 }

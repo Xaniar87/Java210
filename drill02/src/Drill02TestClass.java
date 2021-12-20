@@ -19,7 +19,7 @@ public class Drill02TestClass {
 			stack.push(i);
 		}
 		Stack<Integer> newStack = Drill02.reverseStack(stack);
-		System.out.println("reverseStack([1, 2, 3, 4, 5, 6, 7, 8, 9]) got " + newStack);
+//		System.out.println("reverseStack([1, 2, 3, 4, 5, 6, 7, 8, 9]) got " + newStack);
 		int curr;
 		for (int i = 0; i < 10; i++) {
 			assertEquals(i, (int)newStack.pop());
