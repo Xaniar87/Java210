@@ -24,7 +24,17 @@ public class Drill03 {
 	 * You must use recursion to solve this problem.
 	 */
 	public static boolean digitsSorted(int x) {
-		return false;
+		x=Math.abs(x);
+		if(x<10) {
+			return true;
+		}else {
+			if(x%10>=(x%100-x%10)/10) {
+				int y=x%10;
+				return digitsSorted(x/10);
+			}else {
+				return false;
+			}	
+		}
 	}
 
 	/*
