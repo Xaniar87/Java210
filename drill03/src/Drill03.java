@@ -9,7 +9,12 @@ public class Drill03 {
 	 * You must use recursion to solve this problem.
 	 */
 	public static String replaceAll(String s, char from, char to) {
-		return "";
+		if(s.toLowerCase().indexOf(Character.toLowerCase(from))<0) {
+			return s;
+		}else {
+			int ind=s.toLowerCase().indexOf(Character.toLowerCase(from));
+			return replaceAll(s.substring(0,ind)+to+s.substring(ind+1),from,to);
+		}
 	}
 
 	/*
