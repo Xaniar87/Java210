@@ -47,12 +47,20 @@ public class Drill03 {
 	 * You must use recursion to solve this problem.
 	 */
 	public static String removeAdjacentDuplicateChars(String s) {
-		return "";
+		int ind=0;
+		return removeHelper(s,ind);
 	}
 	// Note that the helper function is 'private' since no other code
 	// outside of this file needs to call this method.
-	private static String removeHelper(String s, int index) {
-		return "";
+	private static String removeHelper(String s, int index) {		
+		if(index==s.length()) {
+			return s;
+		}else {
+			if(s.charAt(index)==s.charAt(index+1)) {
+				return removeHelper(s.substring(0,index)+s.substring(index+1),index+1);
+			} else {
+				return removeHelper(s,index+1);			}
+		}		
 	}
 
 	/*
