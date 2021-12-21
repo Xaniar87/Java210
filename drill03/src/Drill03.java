@@ -73,6 +73,19 @@ public class Drill03 {
 	 * You must use recursion to solve this problem.
 	 */
 	public static int countOccurrences(int[] arr, int n) {
-		return 0;
+		countOccur(arr,n,0);
+		return countOccur(arr,n,0);
+	}
+	private static int countOccur(int[] arr, int n, int ind) {
+		if (ind>=arr.length) {
+			return 0;
+		} else {
+			if (arr[ind]==n) {
+				return countOccur(arr,n,ind+1)+1;
+
+			}else {
+				return countOccur(arr,n,ind+1);
+			}
+		}
 	}
 }
