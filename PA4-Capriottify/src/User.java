@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 	private String name;
 	private String password;
-	List<Playlist> pls;
+	List<Playlist> pls=new ArrayList<>();
 	public User(String name, String password) {
 		 this.name=name;
 		 this.password=password;
@@ -12,7 +13,7 @@ public class User {
 		return this.name;
 	}
 	public boolean attemptLogin(String password) {
-		return password==this.password;
+		return password.equals(this.password);
 	}
 	public void addPlaylist(Playlist newPlaylist) {
 		pls.add(newPlaylist);
@@ -28,7 +29,11 @@ public class User {
 		}
 	}
 	public String toString() {
-		return this.name+", "+ pls.size() + " playlists";
+		return this.name+", "+ pls.size() + " playlists "+password;
+	}
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.password;
 	}
 
 }

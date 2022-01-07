@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class UserCollection {
-	List<User> users;
+	List<User> users=new ArrayList<>();
 	public UserCollection() {
 		 
 	}
@@ -16,8 +17,13 @@ public class UserCollection {
 	}
 	public User login(String name, String pass) {
 		for (User user:users) {
-			if(user.getName().equals(name) && user.attemptLogin(pass)) {
-				return user;
+			if(user.getName().equals(name)) {
+				System.out.println("here-----------"+user.getPassword()+" "+user.attemptLogin(pass));
+
+				if(user.attemptLogin(pass)) {
+					System.out.println("here-----------");
+					return user;
+				}
 			}
 		}
 		return null;

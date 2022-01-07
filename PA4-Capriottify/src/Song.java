@@ -24,7 +24,7 @@ public class Song {
 		System.out.println(toString());
 	}
 	public String toString() {
-		return title+" by "+artist+", "+timesPlayed+"play(s)";
+		return title+" by "+artist+", "+timesPlayed+" play(s)";
 		
 	}
 }

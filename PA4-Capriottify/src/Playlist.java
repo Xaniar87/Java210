@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Playlist {
 
 	private String name;
-	List<Song> pl;
+	List<Song> pl=new ArrayList<>();
 	
 	public Playlist(String name) {
 		this.setName(name);

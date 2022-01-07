@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-	List<Song> lib;
+	List<Song> lib=new ArrayList<>();
 	public Library() {
 		
 	}

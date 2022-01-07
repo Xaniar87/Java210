@@ -19,11 +19,11 @@ public class PA4Main {
 	private static final int EXIT_SELECTION = 9;
 	
 	public static void main(String[] args) {
+		System.out.println(new File(".").getAbsolutePath());
 		try {
 			User currentUser = null;
 			UserCollection allUsers = new UserCollection();
 			Library lib = initSongLibrary(args[0]);
-			System.out.println("-------"+lib.toString());
 			Scanner input = new Scanner(System.in);
 			
 			userInterface(currentUser, allUsers, lib, input);
@@ -182,6 +182,7 @@ public class PA4Main {
 		User toAdd = new User(name, pass);
 		all.addUser(toAdd);
 		System.out.println("User " + name + " Added!");
+		System.out.println(all.userExists(name));
 	}
 	
 	public static User login(UserCollection all, Scanner in) {
@@ -189,7 +190,8 @@ public class PA4Main {
 		String name = in.nextLine();
 		System.out.println("Password? ");
 		String pass = in.nextLine();
-		
+		System.out.println(all.toString());
+		System.out.println(name+" "+pass);
 		User attempt = all.login(name, pass);
 		if (attempt == null) {
 			System.out.println("Login failed!");
