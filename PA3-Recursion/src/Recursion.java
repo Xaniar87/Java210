@@ -18,7 +18,22 @@ public class Recursion {
 	 * 			in s1.
 	 */
 	public static int indexOf(String s1, String s2) {
-		return -1;
+		System.out.println(s1+" "+s2);
+		if(s2.length()==0) {
+			return 0;
+		} else if(s1.length()<s2.length()) {
+			return -1;
+		}else if(s1.substring(0, s2.length()).equals(s2)){
+			return 0;
+		} else {
+			s1=s1.substring(1);
+			if(indexOf(s1,s2)==-1) {
+				return -1;
+				
+			}else{
+				return indexOf(s1,s2)+1;
+			}		
+		}		
 	}
 
 	/**
@@ -31,7 +46,18 @@ public class Recursion {
 	 * @return Returns the number of elements removed from the stack.
 	 */
 	public static int removeEvenNumbers(Stack<Integer> stack, int k) {
-		return 0;
+		if(stack.empty() || k==0) {
+			return 0;
+		} else {
+			if(stack.peek()%2==0) {
+				stack.pop();
+				return 1+removeEvenNumbers(stack,k-1);
+			}else{
+				stack.pop();
+				return removeEvenNumbers(stack,k);
+			}
+			
+		}
 	}
 
 	/**
@@ -46,7 +72,20 @@ public class Recursion {
 	 * order.
 	 */
 	public static int evenDigits(int n) {
-		return 0;
+//		-4234
+		n=Math.abs(n);
+		if (n<10) {
+			if (n%2==0) {
+				return n;
+			}
+			return 0;
+		} else{
+			if (n%10%2==0) {
+				return 10*evenDigits(n/10)+n%10;
+			}else {
+				return evenDigits(n/10);
+			}
+		}
 	}
 
 	/**
@@ -64,9 +103,81 @@ public class Recursion {
 	 * @return The result of the mathematical expression.
 	 */
 	public static int evaluate(Queue<Character> q) {
+		System.out.println("qq: "+q);
+		char op='+';
+		if(!q.isEmpty()){
+			Character ch=q.peek();
+			System.out.println("here");
+			if (q.peek()!=')') {
+				q.remove();	
+				return evaluate(q)+1;
+			}else {
+				System.out.println("ch; "+ch);
+				q.remove();	
+			}
+			System.out.println("ch; "+ch);
+
+		}else {
+			return 0;
+		}
+		System.out.println("qqq ..... : "+q);
 		return 0;
 	}
+//		evaluate(q);
+//		System.out.println("qqq ..... : "+q);
 
+
+//			if(!q.isEmpty()){
+//				System.out.println("here");
+//				Character ch=q.peek();
+//				q.remove();	
+//				evaluate(q);
+//				System.out.println("recurse 222222................");
+//
+//				q.add(ch);
+//			
+////			Character ch=q.peek();
+////			q.remove();
+////			q.add(ch);
+//			System.out.println("qqq ..... : "+q);
+//
+//		}
+			
+//			if (ch!=')') {
+//				evaluate(q);
+//				System.out.println("ch : ..... "+ch);
+
+//				if (ch!='(') {
+//					q.add(ch);
+//					System.out.println("q: "+q);
+//				} else {
+//					System.out.println("q.peek(): "+q.peek());
+//					int a=Character.getNumericValue(q.peek()) ;
+//					System.out.println("a: "+a);
+//
+//					q.remove();
+//					char op=q.peek();
+//					System.out.println("op: "+op);
+//
+//					q.remove();
+//					int b=Character.getNumericValue(q.peek());
+//					System.out.println("b: "+b);
+//					q.remove();
+//					int c=a;
+//					if (op=='*') {
+//						c=a*b;
+//					}else if (op=='+') {
+//						c=a+b;
+//					}
+//					q.add(ch);
+//					q.add(Character.forDigit(c, 10));
+//					System.out.println("q: "+q);
+//				}
+//				evaluate(q);
+//			}
+//		}
+//		return 0;
+//	}
 	/**
 	 * Write a recursive function that accepts a stack of integers and
 	 * replaces each int with two copies of that integer. For example,
@@ -75,7 +186,16 @@ public class Recursion {
 	 * any data structures other than the stack passed in as a parameter.
 	 * @param stack
 	 */
-	public static void repeatStack(Stack<Integer> stack) {}
+	public static void repeatStack(Stack<Integer> stack) {
+		if(!stack.empty()) {
+			int m=stack.peek();
+			stack.pop();
+			repeatStack(stack);
+			stack.add(m);
+			stack.add(m);
+			
+		}
+	}
 
 	/**
 	 * Write a recursive function that accepts a Queue<Integer>. It
@@ -84,6 +204,16 @@ public class Recursion {
 	 * the queue passed in as a parameter. You may use a helper function.
 	 * @param q
 	 */
-	public static void doubleElements(Queue<Integer> q) {}
+	public static void doubleElements(Queue<Integer> q) {
+		doubleEl(q,q.size(),0);	
+	}
+	public static void doubleEl(Queue<Integer> q, int size, int ind) {
+		if(ind<size) {
+			int m=q.peek();
+			q.remove();
+			q.add(m*2);
+			doubleEl(q,size,ind+1);	
+		}
+	}
 
 }
