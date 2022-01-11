@@ -4,7 +4,7 @@ public class Triangle extends Shape {
     private double height;
     
     public Triangle(double base, double height) {
-    	super.setName("Triangle");
+//    	super.setName("Triangle");
         this.base = base;
         this.height = height;
     }

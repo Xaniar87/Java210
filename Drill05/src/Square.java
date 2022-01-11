@@ -3,7 +3,7 @@ public class Square extends Shape {
     private double size;
 
     public Square(double size) {
-    	super.setName("Square");
+//    	super.setName("Square");
 
         this.size = size;
     }

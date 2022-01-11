@@ -13,13 +13,13 @@ public class Drill05 {
     // Return true if the shape in the given location is a Triangle 
     // and false otherwise.
     public static boolean isTriangle(List<List<Shape>> grid, int row, int col) {
-        return getShapeFromGrid( grid, row,col).getName()=="Triangle";
+        return getShapeFromGrid( grid, row,col) instanceof Triangle;
     }
     
     // Return true if the shape in the given location is a Square 
     // and false otherwise.
     public static boolean isSquare(List<List<Shape>> grid, int row, int col) {
-        return getShapeFromGrid( grid, row,col).getName()=="Square";
+        return getShapeFromGrid( grid, row,col) instanceof Square;
     }
 
     // Concatenate all of the Strings in the grid by going row by row. 
