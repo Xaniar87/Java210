@@ -10,22 +10,45 @@ public class Flower extends Plant {
         this.arr[2][2] = ch;
     }
 
-
     public void grow() {
-        if (numGrow < 10) {
-            numGrow++;
-            for (int i = center[0] - (1 * numGrow); i < center[0] + numGrow
-                    + 1; i++) {
-                for (int j = center[1] - (1 * numGrow); j < center[1] + numGrow
-                        + 1; j++) {
-                    if (Math.pow(i - center[0], 2)
-                            + Math.pow(j - center[1], 2) <= Math.pow(numGrow,
-                                    2)
-                            && i < 5 && i > -1 && j < 5 && j > -1) {
-                        this.arr[i][j] = this.ch;
+        growHelper(0, 0);
+
+    }
+
+    public void growHelper(int i, int j) {
+        // System.out.println("i: " + i + " j: " + j);
+
+        if (i < 5 && j<5) {
+            int x = -1;
+            int y = -1;
+            if (this.arr[i][j] == this.ch) {
+                x = i;
+                y = j;
+            }
+            if (j == 4) {
+
+                growHelper(i + 1, 0);
+
+            } else{
+                growHelper(i, j + 1);
+            }
+            if (x != -1 && j != -1) {
+                if (i > 0) {
+                    this.arr[i - 1][j] = ch;
+                    if (j > 0) {
+                        this.arr[i][j - 1] = ch;
                     }
                 }
+
+                if (i < 4) {
+                    this.arr[i + 1][j] = ch;
+                    if (j < 4) {
+                        this.arr[i][j + 1] = ch;
+                    }
+                }
+
             }
+
         }
     }
 

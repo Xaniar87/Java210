@@ -104,30 +104,29 @@ public class PA5Main {
                             }
                         }
                     }
-                 } else if (words[1].charAt(0) == '(') {
-                        String[] word1 = words[1].replace("(", "")
-                                .replace(")", "").split(",");
-                        int x = Integer.parseInt(word1[0]);
-                        int y = Integer.parseInt(word1[1]);
-                        if (gardenArr[x][y] instanceof Vegetables) {
-                            Vegetables veg = (Vegetables) gardenArr[x][y];
-                            veg.harvest();
-                        } else {
-                            System.out.println("Can’t harvest there.");
-                        }
-
+                } else if (words[1].charAt(0) == '(') {
+                    String[] word1 = words[1].replace("(", "").replace(")", "")
+                            .split(",");
+                    int x = Integer.parseInt(word1[0]);
+                    int y = Integer.parseInt(word1[1]);
+                    if (gardenArr[x][y] instanceof Vegetables) {
+                        Vegetables veg = (Vegetables) gardenArr[x][y];
+                        veg.harvest();
                     } else {
-                        for (int i = 0; i < row; i++) {
-                            for (int j = 0; j < col; j++) {
-                                if (gardenArr[i][j].getName()
-                                        .equals(words[1])) {
-                                    Vegetables veg = (Vegetables) gardenArr[i][j];
-                                    veg.harvest();
-                                }
+                        System.out.println("Can’t harvest there.");
+                    }
+
+                } else {
+                    for (int i = 0; i < row; i++) {
+                        for (int j = 0; j < col; j++) {
+                            if (gardenArr[i][j].getName().equals(words[1])) {
+                                Vegetables veg = (Vegetables) gardenArr[i][j];
+                                veg.harvest();
                             }
                         }
-
                     }
+
+                }
 
             } else if (words[0].equals("PLANT")) {
                 String[] word1 = words[1].replace("(", "").replace(")", "")
@@ -196,7 +195,6 @@ public class PA5Main {
                                     }
                                 }
                             }
-
 
                         } else if (map.containsKey(words[2])) {
                             for (int k = 0; k < Integer
