@@ -11,11 +11,11 @@ public class MyArrayList {
 	}
 //	Copy Constructor
 	public MyArrayList(MyArrayList copy) {
-		this.size=copy.size;
-		this.array=new int[size];
-		for(int i=0;i<this.size;i++) {
+		this.array=new int[copy.array.length];
+		for(int i=0;i<copy.size;i++) {
 			this.array[i]=copy.array[i];
 		}
+		this.size=copy.size;
 	}
 	
 	private void growArr() {
@@ -74,7 +74,7 @@ public class MyArrayList {
 			return this.array[index];
 		} else {
 			System.out.println("index should not be greater than the ArrayList.size");
-			return 0;
+			return -3333;
 		}
 	}
 	
@@ -94,8 +94,11 @@ public class MyArrayList {
 	
 	public String toString() {
 		String str="[";
-		for (int i=0;i<this.size;i++) {
-			str+=this.array[i];
+		if(size>0) {
+			str+=this.array[0];
+		}
+		for (int i=1;i<this.size;i++) {
+			str+=", "+this.array[i];
 		}
 		str+="]";
 		return str;
@@ -112,6 +115,7 @@ public class MyArrayList {
 						return false;
 					}
 				}
+				return true;
 			}
 		}
 		return false;		
