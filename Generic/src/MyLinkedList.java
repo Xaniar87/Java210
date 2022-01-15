@@ -1,3 +1,4 @@
+
 public class MyLinkedList<E> {
 	private int size;
 	private Node<E> front;
@@ -126,19 +127,22 @@ public class MyLinkedList<E> {
 	}
 	
 	public String toString() {
-		Node<E> curr=new Node<E>();
-		String str="[";
-		if (!this.front.equals(null)) {
-			str+=this.front.data;
-			curr=this.front.next;
-		}
-		while (curr!=null) {
-			str+=", "+curr.data;
-			curr=curr.next;
-		}
-		str+="]";
-		return str;
-	}
+        int counter = 0;
+        Node<E> curr = new Node<E>();
+        String str = "[";
+        if (!this.front.equals(null)) {
+            str += this.front.data;
+            curr = this.front.next;
+            counter++;
+        }
+        while (curr != null && counter < this.size) {
+            str += ", " + curr.data;
+            curr = curr.next;
+            counter++;
+        }
+        str += "]";
+        return str;
+    }
 	
 	
 	@Override
