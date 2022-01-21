@@ -8,9 +8,8 @@ public class Patient {
         this.name = name;
         this.priority = priority;
     }
-
-		public String toString() {
-			return name + " (" + priority + ")";
-		}
+    public String toString() {
+        return name + " (" + priority + ")";
+    }
 
 }
