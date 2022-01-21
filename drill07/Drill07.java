@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Drill07 {
@@ -30,7 +32,28 @@ public class Drill07 {
 	 * instance, you should only go through the string once.
 	 */
 	public static Set<String> findWikiLinks(String html) {
-		return null;
+		Set<String> words=new HashSet<>();
+		String str="";
+		int ind=0;
+		int len=html.length();
+		while(ind<len) {
+			if(	html.charAt(ind)!=' ') {
+				str+=html.charAt(ind);
+				ind++;
+			}else {
+				if(str.startsWith("href=\"/wiki/") && !str.contains(":") && !str.contains("#")) {
+					str=str.replace("href=\"/wiki/", "");
+					int i=str.indexOf("\"");
+					str=str.substring(0,i);
+					words.add(str);
+					System.out.println(str);
+
+				}
+				str="";
+				ind++;
+			}
+		}
+		return words;
 	}
 
 }
